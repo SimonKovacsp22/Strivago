@@ -1,7 +1,7 @@
 import express from 'express'
-import { JWTAuthMiddleware} from '../../lib/JWTMiddleware.js'
-import {adminMiddleware} from '../../lib/adminMiddleware.js'
-import { getAccomodations, getAccomodationsByHost, createAccomodation } from './index.js'
+import { JWTAuthMiddleware} from '../../lib/JWTMiddleware'
+import {adminMiddleware} from '../../lib/adminMiddleware'
+import { getAccomodations, getAccomodationsByHost, createAccomodation } from './index'
 
 const accomodationsRouter = express.Router()
 

@@ -1,5 +1,5 @@
 import createHttpError from "http-errors";
-import { verifyAccessToken } from "./tokens.js";
+import { verifyAccessToken } from "./tokens";
 import {RequestHandler,Request} from "express"
 import {UserDocument} from "../types"
 

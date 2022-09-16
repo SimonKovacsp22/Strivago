@@ -1,9 +1,9 @@
 import createHttpError from 'http-errors'
-import UserModel from './model.js'
-import AccomodationModel from '../accomodations/model.js'
-import { createAccessToken, verifyAccessToken } from '../../lib/tokens.js'
+import UserModel from './model'
+import AccomodationModel from '../accomodations/model'
+import { createAccessToken, verifyAccessToken } from '../../lib/tokens'
 import {RequestHandler} from "express"
-import { IUserRequest } from '../../lib/JWTMiddleware.js'
+import { IUserRequest } from '../../lib/JWTMiddleware'
 
 export const registerUser: RequestHandler = async (req,res,next) => {
 

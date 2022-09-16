@@ -1,5 +1,5 @@
 import createHttpError from 'http-errors'
-import AccomodationModel from './model.js'
+import AccomodationModel from './model'
 import {RequestHandler} from "express"
 
 export const getAccomodations: RequestHandler = async (req,res,next) => {

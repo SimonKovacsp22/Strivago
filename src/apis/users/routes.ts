@@ -1,6 +1,6 @@
 import express from 'express'
-import { registerUser,loginUser, getUsers, getMe, getManagedAccomodations } from './index.js'
-import { JWTAuthMiddleware } from '../../lib/JWTMiddleware.js'
+import { registerUser,loginUser, getUsers, getMe, getManagedAccomodations } from './index'
+import { JWTAuthMiddleware } from '../../lib/JWTMiddleware'
 
 
 const usersRouter = express.Router()

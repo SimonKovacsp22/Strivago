@@ -30,7 +30,7 @@ export const badRequestHandler: ErrorRequestHandler = (err, req, res, next) => {
   
   export const notFoundHandler: ErrorRequestHandler = (err, req, res, next) => {
     if (err.status === 404) {
-      res.status(404).send({ success: false, message: err.message })
+      res.status(404).send({ success: false, message: err })
     } else {
       next(err)
     }

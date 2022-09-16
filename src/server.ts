@@ -1,9 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
-import usersRouter from './apis/users/routes.js'
-import accomodationsRouter from './apis/accomodations/routes.js'
-import { badRequestHandler,unauthorizedHandler,genericServerErrorHandler,notFoundHandler,forbiddenErrorHandler  } from './lib/errorHandlers.js'
+import usersRouter from './apis/users/routes'
+import accomodationsRouter from './apis/accomodations/routes'
+import { badRequestHandler,unauthorizedHandler,genericServerErrorHandler,notFoundHandler,forbiddenErrorHandler  } from './lib/errorHandlers'
 
 
 export const server = express()
