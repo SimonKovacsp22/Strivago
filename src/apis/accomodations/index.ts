@@ -1,7 +1,8 @@
 import createHttpError from 'http-errors'
 import AccomodationModel from './model.js'
+import {RequestHandler} from "express"
 
-export const getAccomodations = async (req,res,next) => {
+export const getAccomodations: RequestHandler = async (req,res,next) => {
     try {
 
         const accomodations = await AccomodationModel.find()
@@ -12,7 +13,7 @@ export const getAccomodations = async (req,res,next) => {
         next(error)
     }
 }
-export const getAccomodationsByHost = async (req,res,next) => {
+export const getAccomodationsByHost: RequestHandler = async (req,res,next) => {
     try {
 
         if(!req.params.userId) {
@@ -27,7 +28,7 @@ export const getAccomodationsByHost = async (req,res,next) => {
         next(error)
     }
 }
-export const createAccomodation = async (req,res,next) => {
+export const createAccomodation: RequestHandler = async (req,res,next) => {
     try {
 
         const accomodation = new AccomodationModel(req.body)

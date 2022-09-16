@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
+import {ErrorRequestHandler} from 'express'
 
-export const badRequestHandler = (err, req, res, next) => {
+export const badRequestHandler: ErrorRequestHandler = (err, req, res, next) => {
     if (err.status === 400 || err instanceof mongoose.Error.ValidationError) {
       res.status(400).send({ message: err.message, errorsList: err.errorsList })
     } else if( err instanceof mongoose.Error.CastError){
@@ -11,7 +12,7 @@ export const badRequestHandler = (err, req, res, next) => {
     }
   }
   
-  export const unauthorizedHandler = (err, req, res, next) => {
+  export const unauthorizedHandler: ErrorRequestHandler = (err, req, res, next) => {
     if (err.status === 401) {
       res.status(401).send({ message: err.message })
     } else {
@@ -19,7 +20,7 @@ export const badRequestHandler = (err, req, res, next) => {
     }
   }
 
-  export const forbiddenErrorHandler = (err, req, res, next) => {
+  export const forbiddenErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     if (err.status === 403) {
       res.status(403).send({ success: false, message: err.message })
     } else {
@@ -27,7 +28,7 @@ export const badRequestHandler = (err, req, res, next) => {
     }
   }
   
-  export const notFoundHandler = (err, req, res, next) => {
+  export const notFoundHandler: ErrorRequestHandler = (err, req, res, next) => {
     if (err.status === 404) {
       res.status(404).send({ success: false, message: err.message })
     } else {
@@ -35,7 +36,7 @@ export const badRequestHandler = (err, req, res, next) => {
     }
   }
   
-  export const genericServerErrorHandler = (err, req, res, next) => {
+  export const genericServerErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     console.log("ERR: ", err)
     res.status(500).send({ message: "An error occurred on our side! We are gonna fix this ASAP!" })
   }

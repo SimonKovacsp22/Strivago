@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt"
+import { UserDocument, UsersModel } from "../../types";
 
 const {model,Schema} = mongoose
 
@@ -24,7 +25,7 @@ userSchema.pre("save", async function(next){
 
     if(currentUser.isModified("password")){
 
-        const hash = await bcrypt.hash(plainPW, 10)
+        const hash = await bcrypt.hash(plainPW as string, 10)
 
         currentUser.password = hash
     }
@@ -60,4 +61,4 @@ userSchema.static("checkCredentials", async function (email, plainPW){
     }
 }) 
 
-export default model("User",userSchema)
+export default model<UserDocument,UsersModel>("User",userSchema)
