@@ -51,7 +51,7 @@ describe("testing database", ()=> {
     expect(list.body[0].host).toEqual(token?._id)
  })
 
- test("should test that endpoint /me returns my information without a password", async ()=> {
+ test("should test that endpoint /users/me returns my information without a password", async ()=> {
     const response = await client.post("/users/login").send({email:validUser.email,password:validUser.password})
     const me = await client.get("/users/me").set("Authorization", `Bearer ${response.body.accessToken}`)
     console.log("BODY:",me.body)
